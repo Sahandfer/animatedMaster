@@ -5,8 +5,8 @@ import { useStateّ } from 'react';
 
 const startScreen = () => {
     const variants = {
-        first: { height: '50vh', paddingTop: 150},
-        second: { height: 100, paddingTop: 0, marginTop: -40 },
+        first: { height: '50vh', paddingTop: 150, paddingBottom: 0},
+        second: { height: 100, paddingTop: 0, marginTop: -45,  paddingBottom: 0},
     }
 
     const variants1 = {
@@ -31,7 +31,7 @@ const startScreen = () => {
             </Head>
 
             <motion.div initial="first" animate={controls} variants={variants}
-                transition={{ ease: "easeIn", duration: 1.5 }} onTap={startAnimation} className={styles.startScreen_title}>
+                transition={{ ease: "easeIn", duration: 1.2 }} onTap={startAnimation} className={styles.startScreen_title}>
 
                 <motion.div className={styles.startScreen_helper} animate={controls1} variants={variants1} transition={{ ease: "easeOut", duration: 1 }}>
                     快点按下我
@@ -39,6 +39,10 @@ const startScreen = () => {
                 <div className={styles.startScreen_title}>一周年快乐!</div>
 
             </motion.div>
+
+            <motion.div className={styles.startScreen_helper} animate={controls1} variants={variants1} transition={{ ease: "easeOut", duration: 1 }}>
+                快点按下我
+            </motion.div >
         </div>
     );
 };

@@ -14,8 +14,14 @@ const startScreen = () => {
         second: { opacity: 0 },
     }
 
+    const variants2 = {
+        first: { opacity: 1 },
+        second: { opacity: 0 },
+    }
+
     const controls = useAnimation();
     const controls1 = useAnimation();
+    const controls2 = useAnimation();
 
     const startAnimation = async() => {
         await controls.start("second")
@@ -40,9 +46,23 @@ const startScreen = () => {
 
             </motion.div>
 
-            <motion.div className={styles.startScreen_helper} animate={controls1} variants={variants1} transition={{ ease: "easeOut", duration: 1 }}>
-                快点按下我
-            </motion.div >
+            {/* <motion.div className={styles.startScreen_heart} animate={controls2} variants={variants2} transition={{ ease: "easeOut", duration: 1 }}>
+                
+            </motion.div > */}
+
+            <div className={styles.Sahand}>
+                <div className={styles.head}/>
+                <div className={styles.middlebody}>
+                    <div className={styles.leftHand}/>
+                    <div className={styles.body}/>
+                    <div className={styles.rightHand}/>
+                </div>
+
+                <div className={styles.lowerBody}>
+                    <div className={styles.leftFoot}/>
+                    <div className={styles.rightFoot}/>
+                </div>
+            </div>
         </div>
     );
 };

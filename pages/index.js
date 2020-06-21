@@ -1,9 +1,34 @@
 import Head from 'next/head'
+import dynamic from 'next/dynamic'
+const StartScreen = dynamic(() => import('../components/startScreen'))
 
 const Home = () => {
   return (
     <div className="container">
-      <Head>
+      <style jsx>{`
+        .container {
+          height: 100vh;
+          display: flex;
+          flex: 1;
+          overflow:hidden;
+        }`}</style>
+
+        <style jsx global>{`
+          html,
+          body {
+            padding: 0;
+            margin: 0;
+            font-family: -apple-system, BlinkMacSystemFont, Segoe UI, Roboto,
+              Oxygen, Ubuntu, Cantarell, Fira Sans, Droid Sans, Helvetica Neue,
+              sans-serif;
+          }
+  
+          * {
+            box-sizing: border-box;
+          }
+        `}</style>
+      <StartScreen />
+      {/* <Head>
         <title>Create Next App</title>
         <link rel="icon" href="/favicon.ico" />
       </Head>
@@ -203,7 +228,7 @@ const Home = () => {
         * {
           box-sizing: border-box;
         }
-      `}</style>
+      `}</style> */}
     </div>
   )
 }

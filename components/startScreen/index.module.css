@@ -1,0 +1,28 @@
+.container {
+    height: 100vh;
+    width: 100%;
+    background-color: #2FB1A2;
+    overflow:hidden;
+}
+
+.startScreen_helper{
+    display: inline-block;
+    font-size: 1.2rem;
+    color: #000;
+    background-color: #fff;
+    padding: 10px 12px;
+    font-weight: 400;
+    margin-bottom: 18px;
+    right: 0;
+}
+
+.startScreen_title {
+    background-color: #8670FF;
+    color: white;
+    align-self: center;
+    text-align: center;
+    padding-bottom: 20px;
+    font-size: 2rem;
+    font-weight: 800;
+    font-family: 'Trebuchet MS', 'Lucida Sans Unicode', 'Lucida Grande', 'Lucida Sans', Arial, sans-serif;
+}

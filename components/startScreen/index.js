@@ -30,6 +30,24 @@ const startScreen = () => {
         // await controls1.start("first")
     }
 
+    const Dummy = () => {
+        return (
+            <div className={styles.Sahand}>
+                <div className={styles.head}/>
+                <div className={styles.middlebody}>
+                    <div className={styles.leftHand}/>
+                    <div className={styles.body}/>
+                    <div className={styles.rightHand}/>
+                </div>
+
+                <div className={styles.lowerBody}>
+                    <div className={styles.leftFoot}/>
+                    <div className={styles.rightFoot}/>
+                </div>
+            </div>
+        )
+    }
+
     return (
         <div className={styles.container}>
             <Head>
@@ -46,23 +64,16 @@ const startScreen = () => {
 
             </motion.div>
 
+            {Dummy()}
+
+            <img src="../../sofi.png" alt="Sofi" className={styles.sofi} />
+            <img src="../../latiao.jpg" alt="Sofi" className={styles.latiao} />
+
             {/* <motion.div className={styles.startScreen_heart} animate={controls2} variants={variants2} transition={{ ease: "easeOut", duration: 1 }}>
                 
             </motion.div > */}
 
-            <div className={styles.Sahand}>
-                <div className={styles.head}/>
-                <div className={styles.middlebody}>
-                    <div className={styles.leftHand}/>
-                    <div className={styles.body}/>
-                    <div className={styles.rightHand}/>
-                </div>
-
-                <div className={styles.lowerBody}>
-                    <div className={styles.leftFoot}/>
-                    <div className={styles.rightFoot}/>
-                </div>
-            </div>
+            
         </div>
     );
 };

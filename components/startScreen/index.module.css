@@ -26,6 +26,7 @@
 	font-size: 2rem;
 	font-weight: 800;
 	font-family: 'Trebuchet MS', 'Lucida Sans Unicode', 'Lucida Grande', 'Lucida Sans', Arial, sans-serif;
+	margin-bottom: 30px;
 }
 
 .startScreen_heart {
@@ -95,4 +96,20 @@
 
 .rightFoot{
     margin-right: 0px;
+}
+
+.sofi {
+	height: 100px;
+	position: absolute;
+	background-color: #000;
+	bottom: 0;
+	left: 0;
+}
+
+.latiao {
+	height: 100px;
+	position: absolute;
+	background-color: #000;
+	bottom: 0;
+	right: 0;
 }

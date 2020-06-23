@@ -29,15 +29,67 @@
 	margin-bottom: 30px;
 }
 
-.startScreen_heart {
-}
 
 .Sahand {
 	display: inline-flex;
 	flex-direction: column;
-	align-self: center;
-	right: 0;
-	position: relative;
+	position: absolute;
+	left: 15px;
+}
+
+.heart {
+	z-index: 100;
+	position: absolute;
+	right: 77px;
+	top: 110px;
+}
+
+.heart_center {
+	background-color: #ff1f1f;
+	height: 20px;
+	transform: rotate(-45deg);
+	width: 20px;
+	z-index: 1000;
+
+	animation-duration: 1s;
+	animation-iteration-count: infinite;
+	animation-name: heartBeat;
+}
+
+.heart_right,
+.heart_left {
+	background-color: #ff1f1f;
+	height: 20px;
+	width: 20px;
+	border-radius: 50%;
+	position: absolute;
+	top: -10px;
+	left: -10px;
+	animation-duration: 1s;
+	animation-iteration-count: infinite;
+	animation-name: heartBeat;
+}
+
+.heart_right {
+	right: -10px;
+	left: 10px;
+}
+
+@keyframes heartBeat {
+	from {
+		background-color: #ff1f1f;
+		transform: rotate(-45deg) scale(1.2);
+	}
+
+	50% {
+		background-color: #ff1f1f;
+		transform: rotate(-45deg) scale(1.4);
+	}
+
+	to {
+		background-color: #ff1f1f;
+		transform: rotate(-45deg) scale(1.2);
+	}
 }
 
 .head {
@@ -79,23 +131,23 @@
 
 .lowerBody {
 	display: flex;
-    flex-direction: row;
-    align-self: center;
+	flex-direction: row;
+	align-self: center;
 }
 
 .rightFoot,
 .leftFoot {
-    height: 140px;
-    margin-top: -10px;
+	height: 140px;
+	margin-top: -10px;
 	width: 36px;
 	background-color: #e9c46a;
 	border-radius: 8px;
-    border-top: 50px solid #A0C4FF;
-    margin-right: 8px;
+	border-top: 50px solid #a0c4ff;
+	margin-right: 8px;
 }
 
-.rightFoot{
-    margin-right: 0px;
+.rightFoot {
+	margin-right: 0px;
 }
 
 .sofi {
@@ -112,4 +164,39 @@
 	background-color: #000;
 	bottom: 0;
 	right: 0;
+}
+
+.upperSection{
+	display: flex;
+	flex-direction: row;
+	text-align: center;
+}
+
+.texts{
+	position: absolute;
+	right: 15px;
+	color: white;
+	font-weight: 600;
+	padding-top: 80px;
+	font-size: 30px;
+}
+
+.upperText{
+	font-size: 25px;
+	margin-bottom: 10px;
+}
+
+.daysTogether{
+	display: inline-flex;
+	flex-direction: row;
+	font-size: 25px;
+	align-items: center;
+}
+
+.daysNum {
+	font-size: 29px;
+	margin-right: 10px;
+	border-bottom: #fff solid 2px;
+	width: 50px;
+	text-align: center;
 }

@@ -5,7 +5,6 @@ import { useEffect, useState } from 'react';
 
 const startScreen = () => {
     const [numDay, changeDay] = useState(0);
-    // const [rains, changeRain] = useState([]);
     const numDays = Math.floor((Date.parse(new Date()) - Date.parse(new Date("2019-06-30"))) / 86400000);
     const countUp = (numDay, numDays) => {
         if (numDay === numDays) return numDay;
@@ -20,7 +19,7 @@ const startScreen = () => {
     useEffect(() => {
         setTimeout(() => {
             changeDay(countUp(numDay, numDays));
-        }, 1);
+        }, 0.01);
     });
 
 
@@ -47,8 +46,6 @@ const startScreen = () => {
         await controls1.start("second")
         await sahandControls.start("visible")
         await counterControls.start("visible")
-        // await controls.start("first")
-        // await controls1.start("first")
     }
 
     const Heart = (t, r) => {
@@ -68,10 +65,10 @@ const startScreen = () => {
         const rainVariants = {
             initial: { opacity: 0,top:t, right:r, transition: {duration: 0} },
             start: { opacity: 1, transition: {duration: 0} },
-            final: { top: 900, opacity: 0}
+            final: { top: 600, opacity: 0}
         }
         rains.push(
-            <motion.div initial="initial" animate={rainControls} variants={rainVariants} transition={{ duration: 3.5 }} className={styles.heart} style={{ right: r, top: t }} >
+            <motion.div initial="initial" animate={rainControls} variants={rainVariants} transition={{ duration: 2.5}} className={styles.heart} style={{ right: r, top: t }} >
                 <div className={styles.heart_right1}></div>
                 <div className={styles.heart_center1}></div>
                 <div className={styles.heart_left1}></div>
@@ -82,7 +79,6 @@ const startScreen = () => {
         if (rains.length == 0) return
         await rainControls.start("initial")
         await rainControls.start("start")
-        console.log("hiii")
         rainControls.start("final")
     }
 
@@ -119,7 +115,7 @@ const startScreen = () => {
         return (
             <motion.div initial="hidden" animate={counterControls} variants={counterVariants}
                 transition={{ ease: "easeIn", duration: 1 }} className={styles.texts}>
-                <div className={styles.upperText}>跟我在一起已经</div>
+                <div className={styles.upperText}>我们在一起已经</div>
                 <div className={styles.daysTogether}><div className={styles.daysNum}>{numDay}</div>  天</div>
             </motion.div>
         )
@@ -145,9 +141,7 @@ const startScreen = () => {
                 {Dummy(sahandControls)}
                 {DateCounter()}
             </div>
-            <img src="../../sofi.png" alt="Sofi" className={styles.sofi} />
-            <img src="../../latiao.jpg" alt="Latiao" className={styles.latiao} />
-            <motion.img src="../../panda.png" alt="Panda" className={styles.panda} whileTap={{ x: -10, y: -10 }} />
+            <motion.img src="../../panda.png" alt="Panda" className={styles.panda} whileTap={{ x: Math.floor(Math.random(), 20), y: -15 }} />
 
             {
                 rains.map(rain => {

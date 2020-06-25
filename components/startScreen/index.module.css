@@ -166,6 +166,14 @@
 	right: 0;
 }
 
+.panda {
+	height: 120px;
+	position: absolute;
+	background-color: #000;
+	top: 290px;
+	right: 60px;
+}
+
 .upperSection{
 	display: flex;
 	flex-direction: row;

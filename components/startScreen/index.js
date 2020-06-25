@@ -14,7 +14,7 @@ const startScreen = () => {
     useEffect(() => {
         setTimeout(() => {
             changeDay(countUp(numDay, numDays));
-        }, (numDay + 1) / 20);
+        }, (numDay + 1) / 8);
     }); 
 
     const variants = {

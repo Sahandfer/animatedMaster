@@ -156,25 +156,33 @@
 .sofi {
 	height: 100px;
 	position: absolute;
-	background-color: #000;
-	bottom: 0;
-	left: 0;
+	background-color: #2fb1a2;
+	bottom: 80px;
+	left: 40px;
 }
 
 .latiao {
 	height: 100px;
 	position: absolute;
-	background-color: #000;
-	bottom: 0;
-	right: 0;
+	background-color: #2fb1a2;
+	bottom: 170px;
+	right: 40px;
 }
 
 .panda {
 	height: 120px;
 	position: absolute;
-	background-color: #000;
+	background-color: #2fb1a2;
 	top: 290px;
 	right: 60px;
+}
+
+.spiderman{
+	height: 120px;
+	position: absolute;
+	background-color: #2fb1a2;
+	bottom: 220px;
+	left: 60px;
 }
 
 .upperSection{

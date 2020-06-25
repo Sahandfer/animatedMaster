@@ -11,28 +11,26 @@ const startScreen = () => {
         else return typeof numDay === 'undefined' ? 0 : numDay + 1;
     }
 
-    // useEffect(() => {
-    //     setTimeout(() => {
-    //         changeDay(countUp(numDay, numDays));
-    //     }, (numDay + 1) / 8);
-    // }); 
     useEffect(() => {
         setTimeout(() => {
             changeDay(countUp(numDay, numDays));
-        }, 0.01);
-    });
-
-
-
+        }, (numDay + 1) / 20);
+    }); 
 
     const variants = {
-        second: { height: '50vh', paddingTop: 150, paddingBottom: 0 },
-        first: { height: 100, paddingTop: 0, marginTop: -45, paddingBottom: 0 },
+        first: { height: '50vh', paddingTop: 150, paddingBottom: 0 },
+        second: { height: 100, paddingTop: 0, marginTop: -45, paddingBottom: 0 },
     }
 
     const variants1 = {
-        second: { opacity: 1 },
-        first: { opacity: 0 },
+        first: { opacity: 1 },
+        second: { opacity: 0 },
+    }
+
+    const variants2 = {
+        hidden: { opacity: 0 },
+        visible: { opacity: 1, transition: {delay: 2, duration: 1.5} },
+        jump: {x: Math.floor(Math.random(), 20), y: -15 }
     }
 
     const controls = useAnimation();
@@ -84,7 +82,7 @@ const startScreen = () => {
 
     const Dummy = () => {
         const sahandVariants = {
-            hidden: { opacity: 1 },
+            hidden: { opacity: 0 },
             visible: { opacity: 1 },
         }
         return (
@@ -109,7 +107,7 @@ const startScreen = () => {
 
     const DateCounter = () => {
         const counterVariants = {
-            hidden: { opacity: 1 },
+            hidden: { opacity: 0 },
             visible: { opacity: 1 },
         }
         return (
@@ -119,6 +117,12 @@ const startScreen = () => {
                 <div className={styles.daysTogether}><div className={styles.daysNum}>{numDay}</div>  天</div>
             </motion.div>
         )
+    }
+
+    const variants3 = {
+        hidden: { opacity: 0 },
+        visible: { opacity: 1, transition: {delay: 4, duration: 1.5} },
+        jump: {x: Math.floor(Math.random(), 20), y: -15 }
     }
 
     return (
@@ -141,17 +145,19 @@ const startScreen = () => {
                 {Dummy(sahandControls)}
                 {DateCounter()}
             </div>
-            <motion.img src="../../panda.png" alt="Panda" className={styles.panda} whileTap={{ x: Math.floor(Math.random(), 20), y: -15 }} />
+
+
+
+            <motion.img src="../../panda.png" initial="hidden" animate={counterControls} variants={variants2} alt="Panda" className={styles.panda} whileTap={{ x: Math.floor(Math.random(), 20), y: -15 }} />
+            <motion.img src="../../spiderman.jpg" initial="hidden" animate={counterControls} variants={variants3} alt="Panda" className={styles.spiderman} whileTap="jump" />
+            <motion.img src="../../sofi.png" initial="hidden" animate={counterControls} variants={variants3} alt="Panda" className={styles.sofi} whileTap="jump" />
+            <motion.img src="../../latiao.jpg" initial="hidden" animate={counterControls} variants={variants3}  alt="Panda" className={styles.latiao} whileTap="jump" />
 
             {
                 rains.map(rain => {
                     return rain
                 })
             }
-
-            {/* <motion.div className={styles.startScreen_heart} animate={controls2} variants={variants2} transition={{ ease: "easeOut", duration: 1 }}>
-                
-            </motion.div > */}
 
 
         </div>

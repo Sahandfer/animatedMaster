@@ -40,22 +40,27 @@
 .heart {
 	z-index: 100;
 	position: absolute;
-	right: 77px;
-	top: 110px;
 }
 
+.heart_center1,
 .heart_center {
 	background-color: #ff1f1f;
 	height: 20px;
 	transform: rotate(-45deg);
 	width: 20px;
 	z-index: 1000;
+}
 
+.heart_center,
+.heart_right,
+.heart_left{
 	animation-duration: 1s;
 	animation-iteration-count: infinite;
 	animation-name: heartBeat;
 }
 
+.heart_right1,
+.heart_left1,
 .heart_right,
 .heart_left {
 	background-color: #ff1f1f;
@@ -65,11 +70,9 @@
 	position: absolute;
 	top: -10px;
 	left: -10px;
-	animation-duration: 1s;
-	animation-iteration-count: infinite;
-	animation-name: heartBeat;
 }
 
+.heart_right1,
 .heart_right {
 	right: -10px;
 	left: 10px;

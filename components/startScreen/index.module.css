@@ -349,3 +349,11 @@
 .pandaFeet_right {
 	left: 43px;
 }
+
+.quotes {
+	color: #fff;
+	padding-top: 450px;
+	font-weight: 800;
+	text-align: center;
+	align-self: center;
+}

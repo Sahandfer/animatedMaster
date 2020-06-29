@@ -29,8 +29,7 @@ const startScreen = () => {
 
     const variants2 = {
         hidden: { opacity: 0 },
-        visible: { opacity: 1, transition: { delay: 2, duration: 1.5 } },
-        jump: { x: Math.floor(Math.random(), 20), y: -15 }
+        visible: { opacity: 1, transition: { delay: 2, duration: 1.5 } }
     }
 
     const controls = useAnimation();
@@ -150,8 +149,17 @@ const startScreen = () => {
 
     const variants3 = {
         hidden: { opacity: 0 },
-        visible: { opacity: 1, transition: { delay: 4, duration: 1.5 } },
-        jump: { x: Math.floor(Math.random(), 20), y: -15 }
+        visible: { opacity: 1, transition: { delay: 4, duration: 1.5 } }
+    }
+
+    const variants4 = {
+        hidden: { opacity: 0 },
+        visible: { opacity: 1, transition: { delay: 5, duration: 1.5 } }
+    }
+
+    const variants5 = {
+        hidden: { opacity: 0 },
+        visible: { opacity: 1, transition: { delay: 6, duration: 1.5 } }
     }
 
     return (
@@ -172,15 +180,21 @@ const startScreen = () => {
 
             <div className={styles.upperSection}>
                 {Dummy(sahandControls)}
-                {DateCounter()}
+                {DateCounter()} 
             </div>
 
 
             {panda()}
+
             {/* <motion.img src="../../spiderman.jpg" initial="hidden" animate={counterControls} variants={variants3} alt="Panda" className={styles.spiderman} whileTap="jump" />
             <motion.img src="../../sofi.png" initial="hidden" animate={counterControls} variants={variants3} alt="Panda" className={styles.sofi} whileTap="jump" />
             <motion.img src="../../latiao.jpg" initial="hidden" animate={counterControls} variants={variants3} alt="Panda" className={styles.latiao} whileTap="jump" /> */}
 
+            <div className={styles.quotes}>
+                <motion.div className={styles.upperText} style={{fontSize: '32px'}} initial="hidden" animate={counterControls} variants={variants3}><span style={{color: '#6930C3'}}>你</span>是<span style={{color: '#ef476f'}}>我</span>的</motion.div>
+                <motion.div  className={styles.upperText} style={{fontSize: '32px'}} initial="hidden" animate={counterControls} variants={variants4}><span style={{color: '#ef476f'}}>我</span>是<span style={{color: '#6930C3'}}>你</span>的</motion.div>
+                <motion.div  className={styles.upperText} style={{fontSize: '25px', color: '#bc6c25'}} initial="hidden" animate={counterControls} variants={variants5}>臭不要脸</motion.div>
+            </div>
             {
                 rains.map(rain => {
                     return rain

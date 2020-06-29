@@ -14,8 +14,8 @@ const startScreen = () => {
     useEffect(() => {
         setTimeout(() => {
             changeDay(countUp(numDay, numDays));
-        }, (numDay + 1) / 20);
-    }); 
+        }, (numDay + 1) / 8);
+    });
 
     const variants = {
         first: { height: '50vh', paddingTop: 150, paddingBottom: 0 },
@@ -29,8 +29,8 @@ const startScreen = () => {
 
     const variants2 = {
         hidden: { opacity: 0 },
-        visible: { opacity: 1, transition: {delay: 2, duration: 1.5} },
-        jump: {x: Math.floor(Math.random(), 20), y: -15 }
+        visible: { opacity: 1, transition: { delay: 2, duration: 1.5 } },
+        jump: { x: Math.floor(Math.random(), 20), y: -15 }
     }
 
     const controls = useAnimation();
@@ -56,24 +56,53 @@ const startScreen = () => {
         );
     }
 
+    const panda = () => {
+        return (
+            <motion.div className={styles.panda} initial="hidden" animate={counterControls} variants={variants2} whileTap={{ x: Math.floor(Math.random(), 20), y: -15 }}>
+                <div className={styles.pandaHead}>
+                    <div className={styles.pandaHead_left}></div>
+                    <div className={styles.pandaHead_center}>
+                        <div className={styles.pandaHead_center_rightEye}>
+                            <div className={styles.pandaHead_center_eye}></div>
+                        </div>
+                        <div className={styles.pandaHead_center_nose}></div>
+                        <div className={styles.pandaHead_center_leftEye}>
+                            <div className={styles.pandaHead_center_eye}></div>
+                        </div>
+                    </div>
+                    <div className={styles.pandaHead_right}></div>
+                </div>
+                <div className={styles.pandaBody}>
+                    <div className={styles.pandaBody_left}></div>
+                    <div className={styles.pandaBody_center}></div>
+                    <div className={styles.pandaBody_right}></div>
+                </div>
+                <div className={styles.pandaFeet}>
+                    <div className={styles.pandaFeet_left}></div>
+                    <div className={styles.pandaFeet_right}></div>
+                </div>
+            </motion.div>
+        )
+    }
+
     const rains = []
     for (let i = 0; i < 66; i++) {
         const t = -Math.floor(Math.random() * Math.floor(900));
         const r = Math.floor(Math.random() * Math.floor(300)) + 10
         const rainVariants = {
-            initial: { opacity: 0,top:t, right:r, transition: {duration: 0} },
-            start: { opacity: 1, transition: {duration: 0} },
-            final: { top: 600, opacity: 0}
+            initial: { opacity: 0, top: t, right: r, transition: { duration: 0 } },
+            start: { opacity: 1, transition: { duration: 0 } },
+            final: { top: 600, opacity: 0 }
         }
         rains.push(
-            <motion.div initial="initial" animate={rainControls} variants={rainVariants} transition={{ duration: 2.5}} className={styles.heart} style={{ right: r, top: t }} >
+            <motion.div initial="initial" animate={rainControls} variants={rainVariants} transition={{ duration: 2.5 }} className={styles.heart} style={{ right: r, top: t }} >
                 <div className={styles.heart_right1}></div>
                 <div className={styles.heart_center1}></div>
                 <div className={styles.heart_left1}></div>
             </motion.div>);
     }
 
-    const startRain = async() => {
+    const startRain = async () => {
         if (rains.length == 0) return
         await rainControls.start("initial")
         await rainControls.start("start")
@@ -121,8 +150,8 @@ const startScreen = () => {
 
     const variants3 = {
         hidden: { opacity: 0 },
-        visible: { opacity: 1, transition: {delay: 4, duration: 1.5} },
-        jump: {x: Math.floor(Math.random(), 20), y: -15 }
+        visible: { opacity: 1, transition: { delay: 4, duration: 1.5 } },
+        jump: { x: Math.floor(Math.random(), 20), y: -15 }
     }
 
     return (
@@ -147,11 +176,10 @@ const startScreen = () => {
             </div>
 
 
-
-            <motion.img src="../../panda.png" initial="hidden" animate={counterControls} variants={variants2} alt="Panda" className={styles.panda} whileTap={{ x: Math.floor(Math.random(), 20), y: -15 }} />
-            <motion.img src="../../spiderman.jpg" initial="hidden" animate={counterControls} variants={variants3} alt="Panda" className={styles.spiderman} whileTap="jump" />
+            {panda()}
+            {/* <motion.img src="../../spiderman.jpg" initial="hidden" animate={counterControls} variants={variants3} alt="Panda" className={styles.spiderman} whileTap="jump" />
             <motion.img src="../../sofi.png" initial="hidden" animate={counterControls} variants={variants3} alt="Panda" className={styles.sofi} whileTap="jump" />
-            <motion.img src="../../latiao.jpg" initial="hidden" animate={counterControls} variants={variants3}  alt="Panda" className={styles.latiao} whileTap="jump" />
+            <motion.img src="../../latiao.jpg" initial="hidden" animate={counterControls} variants={variants3} alt="Panda" className={styles.latiao} whileTap="jump" /> */}
 
             {
                 rains.map(rain => {
